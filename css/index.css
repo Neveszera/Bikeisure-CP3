@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+  .form-container label {
+    margin-bottom: 10px;
+}
+
+  .form-container input[type="submit"] {
+    margin-top: 20px;
+}
