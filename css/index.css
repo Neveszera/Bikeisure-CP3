@@ -4,9 +4,16 @@
     box-sizing: border-box;
 }
 
-.container {
+  .form-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: flex-start;
+}
+
+  .form-container label {
+    margin-bottom: 10px;
+}
+
+  .form-container input[type="submit"] {
+    margin-top: 20px;
 }
