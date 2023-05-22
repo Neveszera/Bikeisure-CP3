@@ -92,7 +92,7 @@
 
 var toggleModeInput = document.getElementById("toggle-mode");
 toggleModeInput.addEventListener("change", function () {
-  document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 });
 
 (function () {
@@ -136,17 +136,4 @@ toggleModeInput.addEventListener("change", function () {
       errorElement.textContent = "";
     }
   }
-
-  function toggleDarkMode() {
-    body.classList.toggle("dark-mode");
-  }
-
-  var darkModeButton = document.createElement("button");
-  darkModeButton.textContent = "Modo Escuro";
-  darkModeButton.addEventListener("click", toggleDarkMode);
-
-  form.appendChild(darkModeButton);
-
-  // Adicionando a classe dark-mode ao body
-  body.classList.add("dark-mode");
 })();
