@@ -69,3 +69,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0c248e;
 }
+
+@media screen and (max-width: 480px) {
+    .form-container {
+        padding: 10px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
