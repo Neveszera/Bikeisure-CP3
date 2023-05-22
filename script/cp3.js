@@ -1,34 +1,93 @@
-function validateForm() {
-    var primeiroNome = document.getElementById("primeiro-nome").value;
-    var segundoNome = document.getElementById("segundo-nome").value;
-    var email = document.getElementById("email").value;
-    var senha = document.getElementById("senha").value;
-    var confirmarSenha = document.getElementById("confirmar-senha").value;
+var form = document.getElementById("myForm");
+        var primeiroNomeInput = document.getElementById("primeiro-nome");
+        var segundoNomeInput = document.getElementById("segundo-nome");
+        var emailInput = document.getElementById("email");
+        var senhaInput = document.getElementById("senha");
+        var confirmarSenhaInput = document.getElementById("confirmar-senha");
 
-    if (primeiroNome.length < 5 || primeiroNome.trim() === "") {
-        alert("Primeiro nome inválido. Deve ter no mínimo 5 caracteres.");
-        return false;
-    }
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            validateForm();
+        });
 
-    if (segundoNome.length < 5 || segundoNome.trim() === "") {
-        alert("Segundo nome inválido. Deve ter no mínimo 5 caracteres.");
-        return false;
-    }
+        primeiroNomeInput.addEventListener("input", function () {
+            removeError(primeiroNomeInput);
+        });
 
-    if (email.length < 5 || email.trim() === "" || !email.includes("@")) {
-        alert("Email inválido. Deve ter no mínimo 5 caracteres e conter o caractere '@'.");
-        return false;
-    }
+        segundoNomeInput.addEventListener("input", function () {
+            removeError(segundoNomeInput);
+        });
 
-    if (senha.length < 6 || senha.length > 8 || senha.trim() === "") {
-        alert("Senha inválida. Deve ter no mínimo 6 caracteres e no máximo 8 caracteres.");
-        return false;
-    }
+        emailInput.addEventListener("input", function () {
+            removeError(emailInput);
+        });
 
-    if (senha !== confirmarSenha) {
-        alert("A confirmação de senha não corresponde à senha digitada.");
-        return false;
-    }
+        senhaInput.addEventListener("input", function () {
+            removeError(senhaInput);
+        });
 
-    return true;
-}
+        confirmarSenhaInput.addEventListener("input", function () {
+            removeError(confirmarSenhaInput);
+        });
+
+        function validateForm() {
+            var primeiroNome = primeiroNomeInput.value;
+            var segundoNome = segundoNomeInput.value;
+            var email = emailInput.value;
+            var senha = senhaInput.value;
+            var confirmarSenha = confirmarSenhaInput.value;
+
+            var isValid = true;
+
+            if (primeiroNome.length < 5 || primeiroNome.trim() === "") {
+                showError(primeiroNomeInput, "Primeiro nome inválido. Deve ter no mínimo 5 caracteres.");
+                isValid = false;
+            }
+
+            if (segundoNome.length < 5 || segundoNome.trim() === "") {
+                showError(segundoNomeInput, "Segundo nome inválido. Deve ter no mínimo 5 caracteres.");
+                isValid = false;
+            }
+
+            if (email.length < 5 || email.trim() === "" || !email.includes("@")) {
+                showError(emailInput, "Email inválido. Deve ter no mínimo 5 caracteres e conter o caractere '@'.");
+                isValid = false;
+            }
+
+            if (senha.length < 6 || senha.length > 8 || senha.trim() === "") {
+                showError(senhaInput, "Senha inválida. Deve ter no mínimo 6 caracteres e no máximo 8 caracteres.");
+                isValid = false;
+            }
+
+            if (senha !== confirmarSenha) {
+                showError(confirmarSenhaInput, "A confirmação de senha não corresponde à senha digitada.");
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Submeter o formulário ou fazer qualquer outra ação desejada
+                form.submit();
+            }
+        }
+
+        function showError(inputElement, errorMessage) {
+            inputElement.classList.add("error");
+
+            var errorElementId = inputElement.id + "-error";
+            var errorElement = document.getElementById(errorElementId);
+
+            if (errorElement) {
+                errorElement.textContent = errorMessage;
+            }
+        }
+
+        function removeError(inputElement) {
+            inputElement.classList.remove("error");
+
+            var errorElementId = inputElement.id + "-error";
+            var errorElement = document.getElementById(errorElementId);
+
+            if (errorElement) {
+                errorElement.textContent = "";
+            }
+        }
