@@ -124,6 +124,16 @@ input[type="submit"]:hover {
     color: #fff;
 }
 
+.dark-mode .error {
+    /* Cores para o modo dark */
+    border-color: red;
+}
+
+.dark-mode .error-message {
+    /* Cores para o modo dark */
+    color: red;
+}
+
   /* ------------ Responsividade ------------------------------ */
 
 @media screen and (max-width: 480px) {
