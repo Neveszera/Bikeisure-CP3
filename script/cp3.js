@@ -87,4 +87,62 @@
       }
     }
   })();
+
+  // Dark Mode
+
+  (function () {
+    var form = document.getElementById("myForm");
+    var body = document.body;
+  
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      validateForm();
+    });
+  
+    form.addEventListener("input", function (event) {
+      var target = event.target;
+      if (target.tagName.toLowerCase() === "input") {
+        removeError(target);
+      }
+    });
+  
+    function validateForm() {
+      // ... código de validação do formulário ...
+    }
+  
+    function showError(inputElement, errorMessage) {
+      inputElement.classList.add("error");
+  
+      var errorElementId = inputElement.id + "-error";
+      var errorElement = document.getElementById(errorElementId);
+  
+      if (errorElement) {
+        errorElement.textContent = errorMessage;
+      }
+    }
+  
+    function removeError(inputElement) {
+      inputElement.classList.remove("error");
+  
+      var errorElementId = inputElement.id + "-error";
+      var errorElement = document.getElementById(errorElementId);
+  
+      if (errorElement) {
+        errorElement.textContent = "";
+      }
+    }
+  
+    function toggleDarkMode() {
+      body.classList.toggle("dark-mode");
+    }
+  
+    var darkModeButton = document.createElement("button");
+    darkModeButton.textContent = "Modo Escuro";
+    darkModeButton.addEventListener("click", toggleDarkMode);
+  
+    form.appendChild(darkModeButton);
+  
+    // Adicionando a classe dark-mode ao body
+    body.classList.add("dark-mode");
+  })();
   
