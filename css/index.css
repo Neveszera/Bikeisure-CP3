@@ -149,6 +149,82 @@ input[type="submit"]:hover {
     color: #fff;
   }
 
+.dark-mode .error {
+    /* Cores para o modo dark */
+    border-color: red;
+}
+
+.dark-mode .error-message {
+    /* Cores para o modo dark */
+    color: red;
+}
+
+/* ------------------- Botão dark mode --------------------- */
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.toggle-text:before {
+    content: "Claro";
+    padding-right: 4px;
+}
+
+.toggle-text:after {
+    content: "Escuro";
+    padding-left: 4px;
+}
+
+.toggle:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle input:checked + .toggle-text:before {
+    content: "Escuro";
+    padding-right: 4px;
+}
+
+.toggle input:checked + .toggle-text:after {
+    content: "Claro";
+    padding-left: 4px;
+}
+
+.toggle input:checked + .toggle:before {
+    transform: translateX(26px);
+    background-color: #0c248e;
+}
+
+.toggle:hover:before {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
   /* ------------ Responsividade ------------------------------ */
 
 @media screen and (max-width: 480px) {
