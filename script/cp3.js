@@ -88,3 +88,17 @@
     }
   })();
   
+  document.addEventListener("DOMContentLoaded", function() {
+    var darkModeRadios = document.querySelectorAll('input[name="dark-mode"]');
+    var body = document.body;
+  
+    darkModeRadios.forEach(function(radio) {
+      radio.addEventListener("change", function() {
+        if (radio.value === "on") {
+          body.classList.add("dark-mode");
+        } else {
+          body.classList.remove("dark-mode");
+        }
+      });
+    });
+  });
